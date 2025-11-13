@@ -1,0 +1,293 @@
+@font-face {
+  font-family: 'GreekFreak';
+  src: url('GreekFreak.ttf') format('truetype');
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'GreekFreak', serif;
+    font-size: 15px;
+    color: #000000;
+    text-transform: uppercase;
+}
+.navbar{    
+    background-color: 	#f2e7bf;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.LogoHeader{
+    height: 100px;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+}
+.menu a{
+    margin-left: 20px;
+    margin-right: 20px;
+    color: 	#646464;
+    text-decoration: none;
+    text-overflow:inherit;
+    
+}
+.menu a:hover{
+    text-decoration: underline;
+}
+.cadastro{
+    display: flex; 
+    justify-content: flex-end;
+}
+.cadastro a{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #646464;  
+    text-decoration: none;
+}
+.cadastro a:hover{
+     text-decoration: underline;
+}
+.conteudo{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+    background-color:#f7f5ec;
+    height: 400px;
+}
+.FundoTemplo{
+    width: 100%;
+    display: flex;
+    height: 450px;
+}
+.vigaTemploEsquerdo{
+    width: 10%;
+    height: 450px;
+    box-sizing: border-box;
+    margin-left: -20px;
+    background-color: #1d0904;
+}
+.vigaTemploDireito{
+    width: 10%;
+    height: 450px;
+    box-sizing: border-box;
+    margin-left: -20px;
+    background-color: #1d0904;
+}
+.EstatuaGrega{
+    position: absolute;
+    justify-content: center;
+    width: 28%;
+    height: 400px;
+    right: 600px;
+    bottom: 215px;
+}
+.Atletas{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+    background-color:#f7f5ec;
+    height: 1424px;
+}
+.vigaTemploEsquerdo1{
+    position: absolute;
+    width: 8%; 
+    top: 525px;
+    height: 700px;
+    box-sizing: border-box;
+    margin-left: -20px;
+}
+.vigaTemploDireito1{
+    position: absolute;
+    width: 8%;
+    right: 0px;
+    top: 525px;
+    height: 700px;
+    box-sizing: border-box;
+    margin-left: -20px;
+}
+.PrimeiroFisioculturista{
+    position: absolute;
+    right: 990px;
+    top: 660px;
+    width: 378px;
+    height: 360px;
+    border-radius: 10px;
+    background-color: #f7f5ec;
+    background: url('../assets/img/Moldura.png');
+}
+.Inspiracao{
+    position: absolute;
+    top: -50px;
+    right: 120px;
+}
+.eugenSandow{
+    position: absolute;
+    border-radius: 4px;
+    right: 18px;
+    top: 19px;
+    width: 341px;
+    height: 328px;
+}
+.HistoriaEugen{
+    display: flex;
+    background-color: rgb(193, 177, 150);
+    position: absolute;
+    width: 598px;
+    top: 690px;
+    left: 650px;
+    height: 280px;
+    margin-left: 10px;
+    margin-bottom: 10px ;
+    border: 4px solid rgb(72, 72, 102);
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.292);
+}
+.HistoriaEugen p{
+    margin-left: 10px;
+}
+.Dedicacao{
+    position: absolute;
+    top: -48px;
+    right: 120px;
+}
+.KevinLevrone{
+    position: absolute;
+    left: 920px;
+    top: 1090px;
+    width: 378px;
+    height: 360px;
+    border-radius: 10px;
+    background-color: #f7f5ec;
+    background: url('../assets/img/Moldura.png');
+
+}
+.Levrone{
+    position: absolute;
+    width: 340px;
+    height: 329px;
+    right: 18px;
+    bottom: 14px;
+}
+.HistoriaLevrone{
+    display: flex;
+    background-color: rgb(193, 177, 150);
+    position: absolute;
+    width: 590px;
+    top: 1120px;
+    right: 650px;
+    height: 220px;
+    margin-left: 10px;
+    margin-bottom: 10px ;
+    border: 4px solid rgb(72, 72, 102);
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.292);
+}
+.HistoriaLevrone p{
+    margin-left: 10px;
+ 
+}
+.Forca{
+    position: absolute;
+    top: -50px;
+    right: 170px;
+}
+.RonnieColeman{
+    position: absolute;
+    right: 990px;
+    top: 1490px;
+    width: 378px;
+    height: 360px;
+    border-radius: 10px;
+    background-color: #f7f5ec;
+    background: url('../assets/img/Moldura.png');  
+}
+.Ronnie{
+    position: absolute;
+    border-radius: 4px;
+    right: 18px;
+    top: 20px;
+    width: 341px;
+    height: 328px;
+}
+.HistoriaRonnie{
+    display: flex;
+    background-color: rgb(193, 177, 150);
+    position: absolute;
+    width: 570px;
+    top: 1528px;
+    right: 300px;
+    height: 230px;
+    margin-left: 10px;
+    margin-bottom: 10px ;
+    border: 4px solid rgb(72, 72, 102);
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.292)
+}
+.vigaTemploDireito2{
+    position: absolute;
+    width: 8%;
+    right: 0px;
+    bottom: -1186px;
+    height: 700px;
+    box-sizing: border-box;
+    margin-left: -20px;
+
+}
+.vigaTemploEsquerdo2{
+    position: absolute;
+    width: 8%;
+    bottom: -1186px;
+    height: 700px;
+    box-sizing: border-box;
+    margin-left: -20px;
+}
+.IMC{
+    width: 100%;
+    height: 230px;
+    background-color: rgb(135, 122, 98);
+}
+.SimuladorIMC a{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    left: 630px;
+    top:2060px;
+    text-decoration: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+}
+.molduraIMC{
+    display: flex;
+    position: absolute;
+    bottom: -1390px;
+    right: 632px;
+    width: 300px;
+    height: 30px;
+}
+.SimuladorIMC p{
+    position: absolute;
+    display: flex;
+    left: 670px;
+    top: 1990px;
+    width: 140px;
+    height: 40px;
+}
+
