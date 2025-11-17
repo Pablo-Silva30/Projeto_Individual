@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'GreekFreak';
+  src: url('GreekFreak.ttf') format('truetype');
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'GreekFreak', serif;
+    font-size: 15px;
+    color: #000000;
+    text-transform: uppercase;
+}
+.navbar{    
+    background-color: 	#303334;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.LogoHeader{
+    height: 100px;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+}
+.menu a{
+    margin-left: 20px;
+    margin-right: 20px;
+    color: 	#c7c7c7;
+    text-decoration: none;
+    text-overflow:inherit;
+    
+}
+.menu a:hover{
+    text-decoration: underline;
+}
+.cadastro{
+    display: flex; 
+    justify-content: flex-end;
+}
+.cadastro a{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #c7c7c7;  
+    text-decoration: none;
+}
+.cadastro a:hover{
+     text-decoration: underline;
+}
+.ConteudoLogin{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 600px;
+    background-image: url(../assets/imgs/planoFundoCadastro.jpg);
+    background-size: 2000px;
+    background-position: 10px;
+}
+.container {
+  width: 50%;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: black;
+  flex-direction: column;
+  height: fit-content;
+  padding: 20px 0;
+  box-shadow: 6px 6px 3px 3px rgba(0, 0, 0, 0.377);
+}
+.container button{
+    border: 2px solid #000000;
+    border-radius: 4px;
+}
+.container button:hover{
+      text-decoration: underline;
+}
+.container h2 {
+  margin: 0;
+  font-size: 30px;
+}
+.formulario {
+  display: flex;
+  height: 54%;
+  width: 53%;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.formulario span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.formulario input {
+  border: 2px solid #000000;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+.container{
+  align-content: center;
+  width: 500px;
+  height: 400px;
+}
+.campo{
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 5px 0;
+}
+}
+
+.footer {
+  display: flex;
+  background-color:	#303334;
+  height: 200px;
+  color: #fff;
+  font-size: 15px;
+}
+.footer img{
+    height: 150px;
+    align-self: center;
+}
+.footer .contatos {
+  justify-content: center;
+  text-align: center;
+}
+.contatos{
+    position: absolute;
+    right: 250px;
+}
+.contatos p{
+    text-align: start;
+    text-decoration: underline;
+}
+.contatos h5{
+    text-align: start;
+}  
+.atalhos{
+    position: absolute;
+    right: 800px;
+}
+.atalhos a{
+    color: white;
+}
+.atalhos a :hover{
+      text-decoration: underline;
+}
+

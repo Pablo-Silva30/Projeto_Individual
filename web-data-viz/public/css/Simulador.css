@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'GreekFreak';
+  src: url('GreekFreak.ttf') format('truetype');
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'GreekFreak', serif;
+    font-size: 15px;
+    color: #000000;
+    text-transform: uppercase;
+}
+.navbar{    
+    background-color: 	#303334;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.LogoHeader{
+    height: 100px;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+}
+.menu a{
+    margin-left: 20px;
+    margin-right: 20px;
+    color: 	#c7c7c7;
+    text-decoration: none;
+    text-overflow:inherit;
+    
+}
+.menu a:hover{
+    text-decoration: underline;
+}
+.cadastro{
+    display: flex; 
+    justify-content: flex-end;
+}
+.cadastro a{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #c7c7c7;  
+    text-decoration: none;
+}
+.cadastro a:hover{
+     text-decoration: underline;
+}
+.conteudo{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+    background-color:#739298;
+    height: 400px;
+}
+.footer {
+  display: flex;
+  background-color:	#303334;
+  height: 200px;
+  color: #fff;
+  font-size: 15px;
+}
+.footer img{
+    height: 150px;
+    align-self: center;
+}
+.footer .container {
+  justify-content: center;
+  text-align: center;
+}
+.container{
+    position: absolute;
+    right: 250px;
+}
+.container p{
+    text-align: start;
+    text-decoration: underline;
+}
+.container h5{
+    text-align: start;
+}  
+.atalhos{
+    position: absolute;
+    right: 800px;
+}
+.atalhos a{
+    color: white;
+}
+.atalhos a :hover{
+      text-decoration: underline;
+}
+

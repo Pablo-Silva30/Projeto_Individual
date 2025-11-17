@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/Planilha_Treino.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="navbar">
+        <img src="../public/assets/imgs/LogoHeader (2).png" alt="Logo" class="LogoHeader">
+        <div class="menu">
+        <a href="index.html">
+            <p><h3>Home</h3></p>
+            <a href="simulador.html">
+            <p><h3>Simulador</h3></p></a>
+        <a href="Planilha_Treino.html">
+            <p><h3>Planilha De Treino</h3></p></a>
+        </div>
+        <div class="cadastro">
+        <a href="Login.html">
+            <p><h3>Login</h3></p>
+        </a>
+        <a href="cadastro.html">
+            <p class="cadastrar"><h3>Cadastro</h3></p>
+            </a>
+    </header>
+        <main class="planilha">
+            <div class="card card-Planilha">
+            <h2>Monte seu teino!</h2>
+            <div class="conteudo">
+                <span>Qual seu nível na academia: </span>
+                <select name="" id="sel_treino">
+                    <option value="0">Selecione</option>
+                    <option value="1">Iniciante</option>
+                    <option value="2">Moderado</option>
+                    <option value="3">Experiente</option>
+                </select>
+                </div>
+                <div class="conteudo">
+                <span>Qual agrupamento você vai fazer:</span>
+                <select name="" id="sel_agrupamento">
+                    <option value="0">Selecione</option>
+                    <option value="1">Peito</option>
+                    <option value="2">Costas</option>
+                    <option value="3">Quadriceps</option>
+                    <option value="4">Posterior/Perna</option>
+                    <option value="5">Biceps</option>
+                    <option value="6">Triceps</option>
+                    <option value="7">Abdomen</option>
+                </select>
+              </div>
+              <button onclick="planilha()"> Gerar Planilha</button>
+              <button onclick="consultar()">Consultar Treinos</button>
+            </div>
+        </main>
+           <div class="footer">
+             <img src="../public/assets/imgs/LogoHeader (2).png" class="logoFooter">
+    <div class="container">
+            <h3>Contato:</h3>
+            <p>
+            <h5>Email: <p>gymlife@gmail.com</p></h5>
+            <p>
+            <h5>Número: <p>(11)99999-9999</p></h5>
+    </div>
+    <div class="atalhos">
+         <h3>Atalhos:</h3>
+            <p>
+            <h5>Simulador:  <a href="simulador.html">Simulador</a></h5>
+            <p>
+            <h5>Home: <a href="index.html">Home</a></h5>
+            <p>
+            <h5>Login: <a href="login.html">Login</a></h5>
+            <p>
+            <h5>Cadastro:  <a href="cadastro.html">Cadastro</a></h5>
+    </div>
+    <div id="div_msg"></div>
+</body>
+<script>
+        var treino = [];
+    function planilha(){
+        let nivelAcademia = (sel_treino.value);
+        let agrupamento = (sel_agrupamento.value);
+
+        if(nivelAcademia == 0 && agrupamento == 0){
+            alert('Campos estão vazios!');
+        }else if(nivelAcademia == 0){
+            alert('Insira seu Nivel de experiencia');
+        }else if(agrupamento == 0){
+            alert('Insira um Agrupamento para ser feito')
+        }else{
+
+            if(agrupamento == 1){
+                div_
+            }
+        }
+
+    }
+</script>
+</html>

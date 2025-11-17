@@ -1,0 +1,344 @@
+@font-face {
+  font-family: 'GreekFreak';
+  src: url('GreekFreak.ttf') format('truetype');
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'GreekFreak', serif;
+    font-size: 15px;
+    color: #000000;
+    text-transform: uppercase;
+}
+.navbar{    
+    background-color: 	#303334;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.LogoHeader{
+    height: 100px;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+}
+.menu a{
+    margin-left: 20px;
+    margin-right: 20px;
+    color: 	#c7c7c7;
+    text-decoration: none;
+    text-overflow:inherit;
+    
+}
+.menu a:hover{
+    text-decoration: underline;
+}
+.cadastro{
+    display: flex; 
+    justify-content: flex-end;
+}
+.cadastro a{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #c7c7c7;  
+    text-decoration: none;
+}
+.cadastro a:hover{
+     text-decoration: underline;
+}
+.conteudo{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+    background-color:#000000;
+    height: 511px;
+}
+.FundoCadastro{
+    width: 100%;
+    height: 100%;
+}
+.Atletas{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+    background-color:#777777;
+    height: 1424px;
+}
+.vigaTemploEsquerdo1{
+    position: absolute;
+    width: 8%; 
+    top: 610px;
+    height: 730px;
+    box-sizing: border-box;
+    margin-left: -20px;
+}
+.vigaTemploDireito1{
+    position: absolute;
+    width: 6%;
+    right: 0px;
+    top: 610px;
+    height: 730px;
+    box-sizing: border-box;
+    margin-left: -20px;
+}
+.PrimeiroFisioculturista{
+    position: absolute;
+    right: 990px;
+    top: 660px;
+    width: 378px;
+    height: 360px;
+}
+.Inspiracao{
+    position: absolute;
+    top: -50px;
+    right: 120px;
+    text-decoration: underline;
+}
+.eugenSandow{
+    position: absolute;
+    border-radius: 4px;
+    right: 18px;
+    top: 19px;
+    width: 341px;
+    height: 328px;
+}
+.HistoriaEugen{
+    display: flex;
+    background-color: #303334;
+    position: absolute;
+    width: 598px;
+    top: 690px;
+    left: 650px;
+    height: 280px;
+    margin-left: 10px;
+    margin-bottom: 10px ;
+    border: 4px solid rgb(255, 255, 255);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.292);
+}
+.HistoriaEugen p{
+    margin-left: 10px;
+}
+.Dedicacao{
+    position: absolute;
+    top: -48px;
+    right: 120px;
+    text-decoration: underline;
+}
+.KevinLevrone{
+    position: absolute;
+    left: 920px;
+    top: 1090px;
+    width: 378px;
+    height: 360px;
+}
+.Levrone{
+    position: absolute;
+    width: 340px;
+    height: 329px;
+    right: 18px;
+    bottom: 14px;
+}
+.HistoriaLevrone{
+    display: flex;
+    background-color: #303334;
+    position: absolute;
+    width: 590px;
+    top: 1120px;
+    right: 650px;
+    height: 220px;
+    margin-left: 10px;
+    margin-bottom: 10px ;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.292);
+}
+.HistoriaLevrone p{
+    margin-left: 10px;
+ 
+}
+.Forca{
+    position: absolute;
+    top: -40px;
+    right: 162px;
+    text-decoration: underline;
+}
+.RonnieColeman{
+    position: absolute;
+    right: 990px;
+    top: 1490px;
+    width: 378px;
+    height: 360px;
+}
+.Ronnie{
+    position: absolute;
+    border-radius: 4px;
+    right: 18px;
+    top: 20px;
+    width: 341px;
+    height: 328px;
+}
+.HistoriaRonnie{
+    display: flex;
+    background-color: #303334;
+    position: absolute;
+    width: 570px;
+    top: 1528px;
+    right: 300px;
+    height: 230px;
+    margin-left: 10px;
+    margin-bottom: 10px ;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.292)
+}
+.vigaTemploDireito2{
+    position: absolute;
+    width: 6%;
+    right: 0px;
+    bottom: -1300px;
+    height: 699px;
+    box-sizing: border-box;
+    margin-left: -20px;
+
+}
+.vigaTemploEsquerdo2{
+    position: absolute;
+    width: 8%;
+    bottom: -1300px;
+    height: 699px;
+    box-sizing: border-box;
+    margin-left: -20px;
+}
+.problema{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 900px;
+    background-color: rgb(135, 122, 98);
+
+}
+.molduraDourada{
+    position: absolute;
+    right: 1px;
+    width: 100%;
+    height: 900px;
+
+}
+.problema1{
+    position: absolute;
+    border: 10px solid #e7bd42;
+    background-color: rgb(193, 177, 150);
+    border-radius: 10px;
+    bottom: -2100px;
+    left: 100px;
+    width: 600px;
+    height: 590px;
+    text-align: start;
+    padding: 10px;  
+}
+.problema1 p{
+    text-decoration:solid;
+    font-weight:lighter;   
+}
+.problema h1{
+    position: absolute;
+    bottom: -1490px;
+    left: 320px;
+    text-decoration: underline; 
+    color: #e7bd42;
+}
+.ajuda{
+    position: absolute;
+    border: 10px solid #e7bd42;
+    background-color: rgb(193, 177, 150);
+    border-radius: 10px;
+    bottom: -2100px;
+    left: 800px;
+    width: 500px;
+    height: 500px;
+    text-align: start;
+    padding: 10px; 
+}
+.ajuda h1{
+    position: absolute;
+    bottom: 514px;
+    left: 180px;
+    text-decoration: underline; 
+    color: #e7bd42;
+}
+.ajuda a{
+    text-decoration:solid;
+    font-weight:lighter;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: 	#000000;
+    text-decoration: none;
+    text-overflow:inherit;  
+    border: 6px solid #e7bd42;
+    background-color: #e7bd42;
+    border-radius: 10px;
+    text-decoration: none;
+    text-overflow:inherit;    
+}
+.ajuda a:hover{
+    text-decoration: underline;
+}
+
+.footer {
+  display: flex;
+  background-color:	#303334;
+  height: 200px;
+  color: #fff;
+  font-size: 15px;
+  box-shadow: 10px 10px 10px 20px rgba(0, 0, 0, 0.36);
+}
+.footer img{
+    height: 150px;
+    align-self: center;
+}
+.footer .container {
+  justify-content: center;
+  text-align: center;
+}
+.container{
+    position: absolute;
+    right: 250px;
+}
+.container p{
+    text-align: start;
+    text-decoration: underline;
+}
+.container h5{
+    text-align: start;
+}  
+.atalhos{
+    position: absolute;
+    right: 800px;
+}
+.atalhos a{
+    color: white;
+}
+.atalhos a :hover{
+      text-decoration: underline;
+}
+

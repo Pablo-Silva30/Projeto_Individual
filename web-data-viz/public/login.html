@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym-Life | Login</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="../public/css/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+
+    <!--Header-->
+  <header class="navbar">
+        <img src="../public/assets/imgs/LogoHeader (2).png" alt="Logo" class="LogoHeader">
+        <div class="menu">
+        <a href="index.html">
+            <p><h3>Home</h3></p>
+            <a href="simulador.html">
+            <p><h3>Simulador</h3></p></a>
+        <a href="Planilha_Treino.html">
+            <p><h3>Planilha De Treino</h3></p></a>
+        </div>
+        <div class="cadastro">
+        <a href="Login.html">
+            <p><h3>Login</h3></p>
+        </a>
+        <a href="cadastro.html">
+            <p class="cadastrar"><h3>Cadastro</h3></p>
+            </a>
+    </header>
+
+    <main class="ConteudoLogin">
+        <div class="container">
+                <h2>Olá de volta!</h2>
+                <div class="formulario">
+                    <div class="campo">
+                        <span>E-mail:</span>
+                        <input id="email_input" type="text" placeholder="Login">
+                    </div>
+                    <div class="campo">
+                        <span>Senha:</span>
+                        <input id="senha_input" type="password" placeholder="******">
+                    </div>
+                    <button class="botao" onclick="entrar()">Entrar</button>
+                </div>
+
+            </div>
+</main>
+    <!--footer inicio-->
+      <div class="footer">
+             <img src="../public/assets/imgs/LogoHeader (2).png" class="logoFooter">
+    <div class="contatos">
+            <h3>Contato:</h3>
+            <p>
+            <h5>Email: <p>gymlife@gmail.com</p></h5>
+            <p>
+            <h5>Número: <p>(11)99999-9999</p></h5>
+    </div>
+    <div class="atalhos">
+         <h3>Atalhos:</h3>
+            <p>
+            <h5>Simulador:  <a href="simulador.html">Simulador</a></h5>
+            <p>
+            <h5>Planilha de treino: <a href="Planilha_Treino.html">Planilha_Treino</a></h5>
+            <p>
+            <h5>Home: <a href="index.html">Home</a></h5>
+            <p>
+            <h5>Cadastro:  <a href="cadastro.html">Cadastro</a></h5>
+    </div>
+    <!--footer fim-->
+
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
