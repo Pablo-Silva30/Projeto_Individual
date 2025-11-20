@@ -54,24 +54,24 @@ function autenticar(req, res) {
 function cadastrar(req, res) {
     console.log("qq");
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+    var nivelAcademia = req.body.ExperienciaServer;
+    var semana = req.body.DiaSemanaServer;
+    var agrupamento = req.body.AgrupamentoServer;
     // var fkEmpresa = req.body.idEmpresaVincularServer;
 
     // Faça as validações dos valores
-    if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+    if (nivelAcademia == undefined) {
+        res.status(400).send("Seu nivel está undefined!");
+    } else if (semanal == undefined) {
+        res.status(400).send("Sua semana está undefined!");
+    } else if (agrupamento == undefined) {
+        res.status(400).send("Seu agrupamento está undefined!");
     // } else if (fkEmpresa == undefined) {
     //     res.status(400).send("Sua empresa a vincular está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nivelAcademia, semana, agrupamento)
             .then(
                 function (resultado) {
                     res.json(resultado);

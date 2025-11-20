@@ -10,7 +10,7 @@
 
     <script src="./js/sessao.js"></script>
 
-    <link rel="stylesheet" href="../public/css/Simulador.css">
+    <link rel="stylesheet" href="./css/Simulador.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
@@ -18,7 +18,7 @@
 
     <!--header inicio-->
      <header class="navbar">
-        <img src="../public/assets/imgs/LogoHeader (2).png" alt="Logo" class="LogoHeader">
+        <img src="./assets/imgs/LogoHeader (2).png" alt="Logo" class="LogoHeader">
         <div class="menu">
         <a href="index.html">
             <p><h3>Home</h3></p>
@@ -38,26 +38,28 @@
 
 
     <!-- simulador inicio -->
-    <div class="simulador">
-        <div class="container">
+    <main class="simulador">
+        <img src="./assets/imgs/VigaTemploEsquerdo.png" class="vigaTemplo">
+        <div class="card card-simulador">
             <h2>Simulador de IMC</h2>
             <div class="campo">
                <span>Insira seu Peso:</span> 
-               <input type="text" id="ipt_peso">
-
-
-
-
-               
+               <input type="number" id="ipt_peso">
             </div>
-
+            <div class="campo">
+                <span>Sua Altura (exemplo: 1.80):</span>
+                <input type="number" id="ipt_altura">
+            </div>
+            <button onclick="calcular()">Calcular</button>
+            <div id="div_msg"></div>
         </div>
-    </div>
+        <img src="./assets/imgs/VigaTemploDireito (2).png" class="vigaTemplo">
+    </main>
     <!-- simulador fim -->
 
     <!--footer inicio-->
       <div class="footer">
-             <img src="../public/assets/imgs/LogoHeader (2).png" class="logoFooter">
+             <img src="./assets/imgs/LogoHeader (2).png" class="logoFooter">
     <div class="container">
             <h3>Contato:</h3>
             <p>
@@ -68,17 +70,57 @@
     <div class="atalhos">
          <h3>Atalhos:</h3>
             <p>
-            <h5>Home:  <a href="index.html">Home</a></h5>
+            <h5><a href="index.html">Home</a></h5>
             <p>
-            <h5>Planilha de treino: <a href="Planilha_Treino.html">Planilha_Treino</a></h5>
+            <h5><a href="Planilha_Treino.html">Planilha_Treino</a></h5>
             <p>
-            <h5>Login: <a href="login.html">Login</a></h5>
+            <h5><a href="login.html">Login</a></h5>
             <p>
-            <h5>Cadastro:  <a href="cadastro.html">Cadastro</a></h5>
+            <h5><a href="cadastro.html">Cadastro</a></h5>
     </div>
     <!--footer fim-->
 
 
 </body>
+<script>
 
+    function calcular(){
+        let peso = ipt_peso.value;
+        let altura = ipt_altura.value;
+        let result =  peso / (altura * altura);
+
+            div_msg.innerHTML = '';
+        if(peso == '' || peso <= 0 && altura == '' || altura <= 0){
+            alert('Insira os dados corretamente antes da consulta');
+        }else if(peso == ''){
+            alert('Insira seu peso');
+        }else if(altura == ''){
+            alert('Insira sua altura');
+        }else if(peso % 1 != 0){
+            alert('Seu peso tem que ser em número Inteiro');
+        }else if(altura % 1 == 0){
+            alert('A altura tem que ser nesse exemplo 1.80');
+        }else{
+            if(result < 18.5){
+                div_msg.innerHTML +=`Seu IMC é de: ${result.toFixed(0)} (Abaixo do peso)<p>
+                obs: Devem ser interpretados com cautela, pois não considera a composição corporal e a distribuição de gordura.`;
+            }else if(result >= 18.5 && result <= 24.9){
+                div_msg.innerHTML +=`Seu IMC é de: ${result.toFixed(0)} (Peso normal) <p>
+                obs: Devem ser interpretados com cautela, pois não considera a composição corporal e a distribuição de gordura.`; 
+            }else if(result >=25 && result <= 29.9){
+                div_msg.innerHTML +=`Seu IMC é de: ${result.toFixed(0)} (Acima do peso) <p>
+                obs: Devem ser interpretados com cautela, pois não considera a composição corporal e a distribuição de gordura.`;
+            }else if(result >= 30 && result <= 34.9){
+                div_msg.innerHTML +=`Seu IMC é de: ${result.toFixed(0)} (Obesidade Grau I) <p>
+                obs: Devem ser interpretados com cautela, pois não considera a composição corporal e a distribuição de gordura.evem ser interpretados com cautela, pois não considera a composição corporal e a distribuição de gordura.`;
+            }else if(result >=35 && result <= 40){
+                div_msg.innerHTML +=`Seu IMC é de: ${result.toFixed(0)} (Obesidade Grau II) <p>
+                obs: Devem ser interpretados com cautela, pois não considera a composição corporal e a distribuição de gordura.`; 
+            }else if(result > 40){
+                div_msg.innerHTML +=`Seu IMC é de: ${result.toFixed(0)} (Obesidade Grau III) <p>
+                obs: Devem ser interpretados com cautela, pois não considera a composição corporal e a distribuição de gordura.`; 
+            }
+        }
+    }
+</script>
 </html>
