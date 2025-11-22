@@ -110,6 +110,12 @@ body {
   width: 500px;
   height: 400px;
 }
+.botao{
+  display: flex;
+  align-self: center;  
+  justify-content: center;
+  width: 100px;
+}
 .campo{
 .campo {
   display: flex;
@@ -136,7 +142,9 @@ body {
 }
 .contatos{
     position: absolute;
-    right: 250px;
+    margin-top: 20px;
+    right: 90px;
+    font-size: 13px;
 }
 .contatos p{
     text-align: start;
@@ -147,12 +155,14 @@ body {
 }  
 .atalhos{
     position: absolute;
-    right: 800px;
+    margin-top: 20px;
+    right: 400px;
 }
 .atalhos a{
     color: white;
+    font-size: 12px;
 }
 .atalhos a :hover{
-      text-decoration: underline;
+    text-decoration: underline;
 }
 

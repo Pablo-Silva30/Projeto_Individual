@@ -2,28 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="./css/Planilha_Treino.css">
     <title>Document</title>
 </head>
 <body>
     <header class="navbar">
         <img src="./assets/imgs/LogoHeader (2).png" alt="Logo" class="LogoHeader">
-        <div class="menu">
-        <a href="index.html">
-            <p><h3>Home</h3></p>
-            <a href="simulador.html">
-            <p><h3>Simulador</h3></p></a>
-        <a href="Planilha_Treino.html">
-            <p><h3>Planilha De Treino</h3></p></a>
         </div>
-        <div class="cadastro">
-        <a href="Login.html">
-            <p><h3>Login</h3></p>
-        </a>
-        <a href="cadastro.html">
-            <p class="cadastrar"><h3>Cadastro</h3></p>
-            </a>
     </header>
 
     <main class="planilha">
@@ -43,8 +29,8 @@
                 <span>Dia da semana: </span>
                 <select name="" id="sel_dia">
                     <option value="0">Selecione</option>
-                    <option value="1">Segunda-Feira</option>
-                    <option value="2">Terça-Feira</option>
+                    <option value="Segunda-Feira">Segunda-Feira</option>
+                    <option value="Terça-Feira">Terça-Feira</option>
                     <option value="3">Quarta-Feira</option>
                     <option value="4">Quinta-Feira</option>
                     <option value="5">Sexta-Feira</option>
@@ -56,15 +42,15 @@
                 <span>Qual agrupamento você vai fazer:</span>
                 <select name="" id="sel_agrupamento">
                     <option value="0">Selecione</option>
-                    <option value="1">Peito/Triceps</option>
-                    <option value="2">Costas/Biceps</option>
-                    <option value="3">Quadríceps</option>
-                    <option value="4">Posterior/Glúteo</option>
-                    <option value="5">Ombro</option>
+                    <option value="Peito/Triceps">Peito/Triceps</option>
+                    <option value="Costas/Biceps">Costas/Biceps</option>
+                    <option value="Quadríceps">Quadríceps</option>
+                    <option value="Posterior/Glúteo">Posterior/Glúteo</option>
+                    <option value="Ombro">Ombro</option>
                 </select>
             </div>
             <div class="conteudo"></div>
-            <button onclick="cadastrar()" id="btnPlanilha"> Gerar Planilha</button>
+            <button onclick="cadastroPlanilha()" id="btnPlanilha">Salvar Treino</button>
             <button onclick="consultar()" id="btnconsultar"disabled>Consultar Treinos</button>
             <div id="div_msg"></div>
         </div>
@@ -75,10 +61,10 @@
         <div class="container">
             <h3>Contato:</h3>
             <p>
-                <h5>Email: <p>gymlife@gmail.com</p></h5>
+            <h5><a>GymLife@gmail.com</a></h5>
                 <p>
                     <h5>Número: <p>(11)99999-9999</p></h5>
-                
+  
     </div>
     <div class="atalhos">
         <h3>Atalhos:</h3>
@@ -98,7 +84,7 @@
         var vtsemana = [];
         var vtTreino = [];
 
-    function cadastrar(){
+    function cadastroPlanilha(){
         var nivelAcademia = (sel_treino.value);
         var agrupamento = (sel_agrupamento.value);
         var semana = (sel_dia.value);
@@ -116,114 +102,42 @@
         }
         else{
 
-        for(var i = 0; i < vtsemana.length; i++){
-            if(vtsemana[i] == semana){
+        for(var i = 0; i < 3000; i++){
+            if(vtsemana[i] == semana && vtTreino[i] == agrupamento){
                 validador = true
-              break
+                div_msg.innerHTML +=`Treino: ${vtTreino[i]} já está cadastrado para a Semana: ${semana}`
+                break  
             }
+
         }if(validador != true){
             vtsemana.push(semana);
             vtTreino.push(agrupamento);
             vtNivel.push(nivelAcademia);
             div_msg.innerHTML ='Treino da semana, cadastrado';
+            btnconsultar.disabled = false 
+            btnPlanilha.disabled = true;
         }
-           
-        
-        if(nivelAcademia == 1 && agrupamento == 4){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoPosteriorIniciante.jpeg" class="Posterior">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 2 && agrupamento == 4){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoPosteriorIntermediario.jpeg" class="Posterior">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 3 && agrupamento == 4){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoPosteriorExp.jpeg" class="Posterior">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 1 && agrupamento == 5){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoOmbroIniciante.jpeg" class="Ombro">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 2 && agrupamento == 5){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoOmbroIntermediario.jpeg" class="Ombro">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 3 && agrupamento == 5){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoOmbroExp.jpeg" class="Ombro">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 1 && agrupamento == 1){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoPeitoIniciante.jpeg" class="peito_triceps">';
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 2 && agrupamento == 1){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoPeitoIntermediario.jpeg" class="peito_triceps">';
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 3 && agrupamento == 1){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoPeitoExp.jpeg" class="peito_triceps">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia = 1 && agrupamento == 2){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoCostasIniciante.jpeg" class="costas_biceps">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 2 && agrupamento == 2){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoCostasIntermediario.jpeg" class="costas_biceps">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 3 && agrupamento == 2){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoCostasExp.jpeg" class="costas_biceps">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia = 1 && agrupamento == 3){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoQuadricepsIniciante.jpeg" class="Quadriceps">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 2 && agrupamento == 3){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoQuadricepsIntermediario.jpeg" class="Quadriceps">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }else if(nivelAcademia == 3 && agrupamento == 3){
-                div_msg.innerHTML += '<img src="./assets/imgs/TreinoQuadricepsExp.jpeg" class="Quadriceps">';   
-                btnPlanilha.disabled = true;
-                btnconsultar.disabled = false;
-            }
-      
-        }
-        
-      fetch("/usuarios/cadastrar", {
+    }
+
+     if (
+      agrupamento == "" ||
+      semana== "" 
+    ) {
+      alert('Os campos estão vazios! Para conseguir o cadastro, você precisa preecher todas as colunas.')
+    }
+
+    fetch("/usuarios/cadastroPlanilha", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        ExperienciaServer: nivelAcademia,
-        DiaSemanaServer: semana,
-        AgrupamentoServer: agrupamento,
-        // idEmpresaVincularServer: idEmpresaVincular
+        agrupamentoServer: agrupamento,
+        semanaServer: semana,
+        idServer: sessionStorage.ID_USUARIO
       }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-
-          setTimeout(() => {
-            alert("Deu certo!!")
-          }, "2000");
-
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-    }
+    });
+}
 
     function consultar(){
         var nivelAcademia = (sel_treino.value);
@@ -233,13 +147,131 @@
        
         div_msg.innerHTML = '';          
         
-        for(var i = 0; i < vtTreino.length; i++){
+        for(let i = 0; i < 100; i++){
             
-            if(vtTreino.includes() == 1)
-            div_msg.innerHTML +=`${vtTreino}`;
-            btnPlanilha.disabled = false;
-            btnconsultar.disabled = true;
-        }
+            if(nivelAcademia == 1 && agrupamento == "Ombro" && vtTreino[i] == "Ombro"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoOmbroIniciante.jpeg" class="Ombro">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 2 && agrupamento == "Ombro" && vtTreino[i] == "Ombro"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoOmbroIntermediario.jpeg" class="Ombro">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 3 && agrupamento == "Ombro" && vtTreino[i] == "Ombro"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoOmbroExp.jpeg" class="Ombro">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+             } else if(nivelAcademia == 1 && agrupamento == 'Posterior/Glúteo' && vtTreino[i] == 'Posterior/Glúteo'){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoPosteriorIniciante.jpeg" class="Posterior">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 2 && agrupamento == 'Posterior/Glúteo' && vtTreino[i] == 'Posterior/Glúteo'){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoPosteriorIntermediario.jpeg" class="Posterior">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 3 && agrupamento == 'Posterior/Glúteo' && vtTreino[i] == 'Posterior/Glúteo'){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoPosteriorExp.jpeg" class="Posterior">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 1 && agrupamento == "Peito/Triceps" && vtTreino[i] == "Peito/Triceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoPeitoIniciante.jpeg" class="peito_triceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 2 && agrupamento == "Peito/Triceps" && vtTreino[i] == "Peito/Triceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoPeitoIntermediario.jpeg" class="peito_triceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 3 && agrupamento == "Peito/Triceps" && vtTreino[i] == "Peito/Triceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoPeitoExp.jpeg" class="peito_triceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia = 1 && agrupamento == "Costas/Biceps" && vtTreino[i] == "Costas/Biceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoCostasIniciante.jpeg" class="costas_biceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 2 && agrupamento == "Costas/Biceps" && vtTreino[i] == "Costas/Biceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoCostasIntermediario.jpeg" class="costas_biceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 3 && agrupamento == "Costas/Biceps" && vtTreino[i] == "Costas/Biceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoCostasExp.jpeg" class="costas_biceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia = 1 && agrupamento == "Quadríceps" && vtTreino[i] == "Quadríceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoQuadricepsIniciante.jpeg" class="Quadriceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia == 2 && agrupamento == "Quadríceps" && vtTreino[i] == "Quadríceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoQuadricepsIntermediario.jpeg" class="Quadriceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }else if(nivelAcademia = 3 && agrupamento == "Quadríceps" && vtTreino[i] == "Quadríceps"){
+                div_msg.innerHTML += `<img src="./assets/imgs/TreinoQuadricepsExp.jpeg" class="Quadriceps">
+                <br>
+                <a href="./dashboard/dashboard.html" class="href">Ir para a DashBoard</a>`;   
+                btnPlanilha.disabled = false;
+                btnconsultar.disabled = true;
+                 i = 0;
+                 break
+            }
     }
+    
+}
 </script>
 </html>

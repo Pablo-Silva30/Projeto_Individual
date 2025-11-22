@@ -94,15 +94,12 @@ body {
   border-radius: 10px;
   margin: 0;
 }
-.campo{
 .campo {
   display: flex;
   flex-direction: column;
   justify-content: start;
   padding: 5px 0;
 }
-}
-
 .footer {
   display: flex;
   background-color:	#303334;
@@ -118,9 +115,17 @@ body {
   justify-content: center;
   text-align: center;
 }
+.footer a{
+    text-decoration: none;
+}
+.footer a:hover{
+    text-decoration: underline;
+}
 .container{
     position: absolute;
-    right: 250px;
+    margin-top: 20px;
+    right: 90px;
+    font-size: 13px;
 }
 .container p{
     text-align: start;
@@ -128,17 +133,20 @@ body {
 }
 .container h5{
     text-align: start;
-}  
+}    
 .atalhos{
     position: absolute;
-    right: 800px;
+    margin-top: 20px;
+    right: 400px;
 }
 .atalhos a{
     color: white;
+    font-size: 12px;
 }
 .atalhos a :hover{
-      text-decoration: underline;
+    text-decoration: underline;
 }
+
 
 
 
