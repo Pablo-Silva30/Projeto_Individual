@@ -16,7 +16,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body onload="grafico1()">
+<body onload="grafico1(), grafico2(), kpi1(), kpi2()">
     <div class="DashBoard">
         <div class="dados">
             <div class="menu">
@@ -36,21 +36,25 @@
             </div>
             <div class="kpi">
                 <div class="title">
-                    <h1>Olá,<b id="nomeVisitante">nome</b>, Tudo bem?</h1>
+                    <h1>Olá,<b id="idVisitante"></b>, Tudo bem?</h1>
                 </div>
-                <div class="alerta">
-                    <div class="alerta1"><p><h3>SEMANA DO AGRUPAMENTO:</h3></p>
+                <div class="alertas">
+                    <h2>INFORMATIVO SOBRE SUA CONTA:</h2>
+                    <div class="alerta1"> 
+                    <a><h3>DIA DA SEMANA DO AGRUPAMENTO: <p id="kpiSemana"></p></h3></p></a>
                     </div>
                     <div class="alerta2">
-                    <p><h3>AGRUPAMENTO MAIS FEITO:</h3></p>
+                    <a><h3>AGRUPAMENTO MAIS FEITO POR VOCÊ: <p id="kpiAgrupamento"></p></h3></a>
                     </div>
                 </div>
                 <div class="graficos">
                     <div class="grafico1">
+                        <h3>SEUS TREINOS TOTAIS FEITOS:  </h3>
                         <canvas id="chartLine"></canvas>
                     </div>
                     <div class="grafico2">
-
+                        <h3>SOMA TOTAL DOS TREINOS DE OUTROS VISITANTES:</h3>
+                        <canvas id="chartBar"></canvas>
                     </div>
                 </div>
             </div>
@@ -62,57 +66,171 @@
     const cpxline = document.getElementById("chartLine");
 
     function grafico1(){
-        let idVisitante = document.getElementById("nomeVisitante");
-            idVisitante.inneHTML =sessionStorage.NOME_USUARIO;
-        
-              new Chart (chartLine, {
-            type:'line',
-            data: {
-                labels: ["Peito/Tríceps", "Costas/Bíceps", "Quadríceps", "Ombro", "Posterior/Glúteo"],
-                datasets: [{
-                label: 'My First Dataset',
-                data: [7, 0],
-                fill: false,
-                colors: 'white',
-                borderColor: 'grey',
-                backgroundColor: 'white',
-                tension: 0.2     
-            }]
-        }
-       })
+        var idVisitante = document.getElementById("idVisitante");
+            idVisitante.innerHTML =sessionStorage.NOME_USUARIO;
+    
 
-       var fkUsuario = sessionStorage.ID_USUARIO;
-
-        fetch("/usuarios/autenticar", {
+            
+            
+        var fkUsuario = sessionStorage.ID_USUARIO;
+        console.log(fkUsuario);
+        fetch("/medidas/mostrargrafico1", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                IDServer: fkUsuario
+            body: JSON.stringify({ 
+            idServer: fkUsuario
             })
-        }).then(function (resposta) {
+        }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados Recebidos: ${JSON.stringify(resposta)}`);
-
+                var vtAgrupamento = [];
+                var vtQtdAgrupamento = [];
+                resposta.forEach(item => {
+                    vtAgrupamento.push(item.agrupamento);
+                    vtQtdAgrupamento.push(item.qtdAgrupamento);
+                });
+            new Chart (chartLine, {
+            type:'bar',
+            data: {
+            labels: vtAgrupamento,
+            datasets: [{
+            label: 'Seus treinos feitos',
+            data: vtQtdAgrupamento,
+            fill: false,
+            colors: 'black',
+            borderColor: 'black',
+            backgroundColor: 'rgba(164,164,61,0.4)',
+            tension: 0.1     
+            }]
+        }
+       })
                 });
 
             } else {
-
                 console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                  
-                });
             }
 
-        }).catch(function (erro) {
+            }).catch(function (erro) {
             console.log(erro);
-        })
+            })
     }
-      
+
+    function grafico2(){
+
+
+          var visitante = sessionStorage.ID_USUARIO;
+
+          fetch("/medidas/mostrargrafico2", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ 
+            VisitanteServer: visitante
+            })
+        }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados Recebidos: ${JSON.stringify(resposta)}`);
+                var vtAgrupamento = [];
+                var vtQtdAgrupamento = [];
+                resposta.forEach(item => {
+                    vtAgrupamento.push(item.agrupamento);
+                    vtQtdAgrupamento.push(item.qtdAgrupamento);
+                });
+            new Chart (chartBar, {
+            type:'bar',
+            data: {
+            labels: vtAgrupamento,
+            datasets: [{
+            label: 'Soma de todos os treinos',
+            data: vtQtdAgrupamento,
+            fill: false,
+            colors: 'grey',
+            borderColor: 'black',
+            backgroundColor: [  'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'],
+            tension: 0.1   
+            }]
+        }
+       })
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+            }
+
+            }).catch(function (erro) {
+            console.log(erro);
+            })
+    }
+     
+    function kpi1(){
+
+            var UserKpi = sessionStorage.ID_USUARIO
+
+          fetch("/medidas/kpi1", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados Recebidos: ${JSON.stringify(resposta)}`);
+                    var agrupamento = Userkpi
+                resposta.forEach(item => {
+                    agrupamento = item.agrupamento
+                });
+                kpiAgrupamento.innerHTML = agrupamento
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+            }
+
+            }).catch(function (erro) {
+            console.log(erro);
+            })
+    }
+
+    function kpi2(){
+
+            var UserKpi = sessionStorage.ID_USUARIO
+
+          fetch("/medidas/kpi2", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados Recebidos: ${JSON.stringify(resposta)}`);
+                    var semana = Userkpi
+                resposta.forEach(item => {
+                    semana = item.dia_semana
+                });
+                kpiSemana.innerHTML = semana
+                console.log(semana)
+                });
+
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+            }
+
+            }).catch(function (erro) {
+            console.log(erro);
+            })
+    }
     </script>
 </html>
 

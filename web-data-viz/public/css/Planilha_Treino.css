@@ -10,10 +10,12 @@ body {
 .navbar{    
     background-color:#303334;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+.title{
+   color: white;
 }
 .LogoHeader{
     height: 100px;
@@ -143,6 +145,20 @@ body {
 .footer .container {
   justify-content: center;
   text-align: center;
+}
+.fonteInfo{
+    display: flex;
+    flex-direction: column;
+    margin-top: 110px;
+    margin-left: 60px;
+}
+
+.fonteInfo a{
+    color: white;
+    text-decoration: none;
+}
+.fonteInfo a:hover{
+    text-decoration: underline;
 }
 .container{
     position: absolute;

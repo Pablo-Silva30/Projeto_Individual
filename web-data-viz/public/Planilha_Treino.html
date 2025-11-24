@@ -10,6 +10,9 @@
     <header class="navbar">
         <img src="./assets/imgs/LogoHeader (2).png" alt="Logo" class="LogoHeader">
         </div>
+        <div class="title">
+        <p>PLANILHA DE TREINOS!</p>
+        </div>
     </header>
 
     <main class="planilha">
@@ -31,11 +34,11 @@
                     <option value="0">Selecione</option>
                     <option value="Segunda-Feira">Segunda-Feira</option>
                     <option value="Terça-Feira">Terça-Feira</option>
-                    <option value="3">Quarta-Feira</option>
-                    <option value="4">Quinta-Feira</option>
-                    <option value="5">Sexta-Feira</option>
-                    <option value="6">Sábado</option>
-                    <option value="7">Domingo</option>
+                    <option value="Quarta-Feira">Quarta-Feira</option>
+                    <option value="Quinta-Feira">Quinta-Feira</option>
+                    <option value="Sexta-Feira">Sexta-Feira</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
                 </select>
             </div>
                 <div class="conteudo">
@@ -58,6 +61,12 @@
     </main>
     <div class="footer">
         <img src="./assets/imgs/LogoHeader (2).png" class="logoFooter">
+
+        <div class="fonteInfo">
+            <h4>Fonte de treinos:</h4>
+     
+           <a href="https://johannschatz.com/packs-ebooks/">https://johannschatz.com/packs-ebooks/</a>
+        </div>
         <div class="container">
             <h3>Contato:</h3>
             <p>
@@ -124,7 +133,7 @@
       semana== "" 
     ) {
       alert('Os campos estão vazios! Para conseguir o cadastro, você precisa preecher todas as colunas.')
-    }
+    }else{
 
     fetch("/usuarios/cadastroPlanilha", {
       method: "POST",
@@ -137,6 +146,7 @@
         idServer: sessionStorage.ID_USUARIO
       }),
     });
+    }
 }
 
     function consultar(){
@@ -145,7 +155,7 @@
         var semana = (sel_dia.value);
         var validador = false;
        
-        div_msg.innerHTML = '';          
+        div_msg.innerHTML = '';  
         
         for(let i = 0; i < 100; i++){
             

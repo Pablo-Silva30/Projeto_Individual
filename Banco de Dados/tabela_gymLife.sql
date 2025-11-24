@@ -5,12 +5,12 @@ USE Gym_Life;
 CREATE TABLE usuario (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
-email VARCHAR(100),
+email VARCHAR(100) UNIQUE,
 CONSTRAINT chkEmail CHECK (email LIKE('%@%.%')),
 senha VARCHAR(100)
 );
 
-SELECT id,nome, email, senha FROM usuario WHERE email like '%@%' AND senha like '%';
+select * from usuario;
 
 CREATE TABLE planilha_treino(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -20,14 +20,25 @@ fkUsuario INT,
 CONSTRAINT fkPlanilha_Usuario FOREIGN KEY(fkUsuario) REFERENCES usuario(id)
 );
 
-SELECT * FROM planilha_treino;
-
-INSERT INTO planilha_treino(agrupamento, dia_semana, fkUsuario) VALUES
-('Peito/Triceps', 'Segunda-Feira', 1);
 
 
-SELECT 
-	u.nome as 'Nome',
-				p.agrupamento AS 'agrupamento'
-						FROM usuario as u
-								JOIN planilha_treino as p ON u.id = p.fkUsuario; 
+
+SELECT u.nome,
+p.dia_semana as 'Dia da Semana:',
+p.agrupamento as agrupamento,COUNT(p.agrupamento) as 
+qtdAgrupamento FROM planilha_treino as p JOIN usuario as u ON u.id = p.fkUsuario 
+WHERE p.agrupamento < (SELECT  COUNT(p.agrupamento) FROM planilha_treino)
+GROUP BY u.nome, p.agrupamento, p.dia_semana;
+
+SELECT agrupamento, COUNT(*) AS total
+FROM planilha_treino
+GROUP BY agrupamento
+ORDER BY total DESC
+LIMIT 1;
+
+SELECT u.nome, p.dia_semana, COUNT(*) AS total
+FROM planilha_treino AS p
+JOIN usuario AS u ON p.fkUsuario = u.id
+GROUP BY p.dia_semana, u.nome
+ORDER BY total DESC
+LIMIT 1;  

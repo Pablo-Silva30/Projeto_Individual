@@ -130,8 +130,8 @@
         if (resposta.ok) {
           setTimeout(() => {
             window.location = "login.html";
-            alert("Cadastro efetuado com sucesso!")
-          }, "2000");
+            div_msg.innerHTML = "Cadastro efetuado com sucesso!";
+          }, 1000);
 
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
