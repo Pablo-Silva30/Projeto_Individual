@@ -36,15 +36,17 @@
             </div>
             <div class="kpi">
                 <div class="title">
-                    <h1>Olá,<b id="idVisitante"></b>, Tudo bem?</h1>
+                    <h1>Olá, <b id="idVisitante"></b> , Bem vindo(a)!</h1>
                 </div>
                 <div class="alertas">
-                    <h2>INFORMATIVO SOBRE SUA CONTA:</h2>
+                    
+                    <h3>INFORMATIVO DA SUA CONTA:</h3>
+                
                     <div class="alerta1"> 
-                    <a><h3>DIA DA SEMANA DO AGRUPAMENTO: <p id="kpiSemana"></p></h3></p></a>
+                    <a><h3>AGRUPAMENTO MAIS FEITO POR VOCÊ: <p id="kpiAgrupamento"></p></h3></p></a>
                     </div>
                     <div class="alerta2">
-                    <a><h3>AGRUPAMENTO MAIS FEITO POR VOCÊ: <p id="kpiAgrupamento"></p></h3></a>
+                    <a><h3>DIA DA SEMANA DO AGRUPAMENTO:<p id="kpisemana"></p></h3></a>
                     </div>
                 </div>
                 <div class="graficos">
@@ -53,7 +55,7 @@
                         <canvas id="chartLine"></canvas>
                     </div>
                     <div class="grafico2">
-                        <h3>SOMA TOTAL DOS TREINOS DE OUTROS VISITANTES:</h3>
+                        <h3>SOMA TOTAL DOS TREINOS DE OUTRAS CONTAS:</h3>
                         <canvas id="chartBar"></canvas>
                     </div>
                 </div>
@@ -175,18 +177,23 @@
      
     function kpi1(){
 
-            var UserKpi = sessionStorage.ID_USUARIO
+
+        
+        var idUsuario = sessionStorage.ID_USUARIO;
 
           fetch("/medidas/kpi1", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify({ 
+            idServer: idUsuario
+            })
         }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados Recebidos: ${JSON.stringify(resposta)}`);
-                    var agrupamento = Userkpi
+                    var agrupamento = ''
                 resposta.forEach(item => {
                     agrupamento = item.agrupamento
                 });
@@ -204,22 +211,26 @@
 
     function kpi2(){
 
-            var UserKpi = sessionStorage.ID_USUARIO
+
+        var idUsuario = sessionStorage.ID_USUARIO;
 
           fetch("/medidas/kpi2", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+             body: JSON.stringify({ 
+            idServer: idUsuario
+            })
         }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados Recebidos: ${JSON.stringify(resposta)}`);
-                    var semana = Userkpi
+                var semana = ''
                 resposta.forEach(item => {
                     semana = item.dia_semana
                 });
-                kpiSemana.innerHTML = semana
+                kpisemana.innerHTML = semana
                 console.log(semana)
                 });
 

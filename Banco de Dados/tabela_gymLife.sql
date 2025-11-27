@@ -23,22 +23,34 @@ CONSTRAINT fkPlanilha_Usuario FOREIGN KEY(fkUsuario) REFERENCES usuario(id)
 
 
 
-SELECT u.nome,
-p.dia_semana as 'Dia da Semana:',
-p.agrupamento as agrupamento,COUNT(p.agrupamento) as 
-qtdAgrupamento FROM planilha_treino as p JOIN usuario as u ON u.id = p.fkUsuario 
-WHERE p.agrupamento < (SELECT  COUNT(p.agrupamento) FROM planilha_treino)
-GROUP BY u.nome, p.agrupamento, p.dia_semana;
+SELECT p.agrupamento as agrupamento,COUNT(agrupamento) as qtdAgrupamento
+ FROM planilha_treino as p 
+ JOIN usuario as u ON u.id = p.fkUsuario 
+ WHERE p.fkUsuario = p.fkUsuario
+ GROUP BY p.agrupamento
+ ORDER BY p.agrupamento
+ LIMIT 1;
 
-SELECT agrupamento, COUNT(*) AS total
-FROM planilha_treino
-GROUP BY agrupamento
+SELECT u.nome,p.agrupamento, COUNT(*) AS total
+FROM planilha_treino AS p
+JOIN usuario AS u ON p.fkUsuario = u.id
+WHERE u.id = p.fkUsuario
+GROUP BY p.agrupamento, u.nome 
 ORDER BY total DESC
 LIMIT 1;
 
-SELECT u.nome, p.dia_semana, COUNT(*) AS total
+
+SELECT u.nome, p.dia_semana, COUNT(p.agrupamento) AS total
 FROM planilha_treino AS p
 JOIN usuario AS u ON p.fkUsuario = u.id
+WHERE u.id = p.fkUsuario
 GROUP BY p.dia_semana, u.nome
-ORDER BY total DESC
-LIMIT 1;  
+ORDER BY total DESC;  
+
+
+SELECT u.nome,p.agrupamento, COUNT(*) AS total
+FROM planilha_treino AS p
+JOIN usuario AS u ON p.fkUsuario = u.id
+WHERE u.id = 1
+GROUP BY u.nome, p.agrupamento;
+

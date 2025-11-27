@@ -20,7 +20,7 @@
         <div class="card card-Planilha">
             <h2>Monte seu treino!</h2>
             <div class="conteudo">
-                <span>Qual seu nível na academia: </span>
+                <span>Qual o nível de treino: </span>
                 <select name="" id="sel_treino">
                     <option value="0">Selecione</option>
                     <option value="1">Iniciante</option>
@@ -150,7 +150,7 @@
 }
 
     function consultar(){
-        var nivelAcademia = (sel_treino.value);
+        var nivelAcademia = Number(sel_treino.value);
         var agrupamento = (sel_agrupamento.value);
         var semana = (sel_dia.value);
         var validador = false;

@@ -33,9 +33,9 @@ function mostrargrafico2(req, res) {
 }
 
 function kpi1(req, res) {
-    var visitante = req.body.agrupamento;
+    var fkUsuario = req.body.idServer;
     
-    medidaModel.kpi1(visitante).then(function (resultado) {
+    medidaModel.kpi1(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -49,9 +49,9 @@ function kpi1(req, res) {
 }
 
 function kpi2(req, res) {
-    var visitante = req.body.semana;
+    var fkUsuario = req.body.idServer;
     
-    medidaModel.kpi2(visitante).then(function (resultado) {
+    medidaModel.kpi2(fkUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

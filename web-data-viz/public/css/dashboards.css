@@ -43,6 +43,7 @@ body {
 .title_planilha{
   display: flex;
   margin-left: 30px;
+  font-size: 20px;
   align-self: center;
   color: white;
 }
@@ -91,7 +92,6 @@ body {
 .title h1{
     text-align: center;
     color: #c7c7c7;
-    text-decoration: underline;
 }
 .alertas{
   display: flex;
@@ -138,7 +138,7 @@ body {
   flex-direction: column;
   width: 50%;
   height: 100%;
-  background-color: #cfcfcf;
+  background-color: #959494;
 }
 
 
@@ -149,5 +149,5 @@ body {
   border-left: 1px solid black;
   width: 50%;
   height: 100%;
-  background-color: #cfcfcf;
+  background-color: #959494;
 }
