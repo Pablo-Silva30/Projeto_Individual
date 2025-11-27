@@ -3,7 +3,7 @@ CREATE DATABASE Gym_Life;
 USE Gym_Life;
 
 CREATE TABLE usuario (
-id INT PRIMARY KEY AUTO_INCREMENT,
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 email VARCHAR(100) UNIQUE,
 CONSTRAINT chkEmail CHECK (email LIKE('%@%.%')),
@@ -17,7 +17,7 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 agrupamento VARCHAR(45),
 dia_semana	VARCHAR(45),
 fkUsuario INT, 
-CONSTRAINT fkPlanilha_Usuario FOREIGN KEY(fkUsuario) REFERENCES usuario(id)
+CONSTRAINT fkPlanilha_Usuario FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario)
 );
 
 
