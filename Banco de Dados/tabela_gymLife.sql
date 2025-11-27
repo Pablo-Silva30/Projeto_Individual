@@ -6,13 +6,10 @@ CREATE TABLE usuario (
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 email VARCHAR(100) UNIQUE,
-CONSTRAINT chkEmail CHECK (email LIKE('%@%.%')),
 senha VARCHAR(100)
 );
 
-select * from usuario;
-
-CREATE TABLE planilha_treino(
+CREATE TABLE planilha_treino (
 id INT PRIMARY KEY AUTO_INCREMENT,
 agrupamento VARCHAR(45),
 dia_semana	VARCHAR(45),
